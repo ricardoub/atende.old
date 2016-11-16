@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('usuarios', function () {
+  $users = \Atende\Models\User::all();
+  dd($users->toArray());
+  //return view('users.index')->with(['users' => $users]);
+});
