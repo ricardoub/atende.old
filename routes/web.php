@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('usuarios', function () {
-  $users = \Atende\Models\User::all();
-  //dd($users->toArray());
-  return view('users.index')->with(compact('users'));
+Route::group(['prefix' => 'usuarios'], function() {
+  Route::get('',        ['as' => 'users.index',  'uses' => 'UserController@index']);
+  Route::get('novo',    ['as' => 'users.create', 'uses' => 'UserController@create']);
+  Route::post('gravar', ['as' => 'users.store',  'uses' => 'UserController@store']);
 });

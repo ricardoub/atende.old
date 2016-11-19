@@ -4,10 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading"><h1>Usuários</h1></div>
+            <div class="panel-heading">
+              <h1>Usuários <small>- Usuários cadastrados</small></h1>
+            </div>
 
             <div class="panel-body">
-                <h2>Este conteúdo está vindo da View!</h2>
                 <table class="table table-bordered table-stripped">
                   <thead>
                     <tr>
@@ -26,6 +27,9 @@
                     @endforeach()
                   </tbody>
                 </table>
+                <div class="text-center">
+                  {{ $users->render() }}
+                </div>
             </div>
         </div>
     </div>
