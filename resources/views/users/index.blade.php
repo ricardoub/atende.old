@@ -5,7 +5,25 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-              <h1>Usuários <small>- Usuários cadastrados</small></h1>
+              <div class="row">
+                <h1>
+                  <div class="col-md-7">
+                    Usuários <small>- Cadastrados</small>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="btn-group pull-right" >
+                      <a href="{{ route("$actionLinks[0]") }}" class="btn btn-default" >
+                        <i class="fa fa-plus fa-fw"></i>
+                        {{ $actionNames[0] }}
+                      </a>
+                      <a href="{{ route("$actionLinks[1]") }}" class="btn btn-default" >
+                        <i class="fa fa-plus fa-fw"></i>
+                        {{ $actionNames[1] }}
+                      </a>
+                    </div>
+                  </div>
+                </h1>
+              </div>
             </div>
 
             <div class="panel-body">

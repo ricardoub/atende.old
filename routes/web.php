@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home',     ['as' => 'home',   'uses' => 'HomeController@index']);
 
-Route::group(['prefix' => 'usuarios'], function() {
-  Route::get('',        ['as' => 'users.index',  'uses' => 'UserController@index']);
-  Route::get('novo',    ['as' => 'users.create', 'uses' => 'UserController@create']);
-  Route::post('gravar', ['as' => 'users.store',  'uses' => 'UserController@store']);
+Route::group(['prefix' => 'usuarios', 'as' => 'users.'], function() {
+  Route::get('',        ['as' => 'index',  'uses' => 'UserController@index']);
+  Route::get('novo',    ['as' => 'create', 'uses' => 'UserController@create']);
+  Route::post('gravar', ['as' => 'store',  'uses' => 'UserController@store']);
 });

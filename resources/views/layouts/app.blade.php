@@ -36,22 +36,26 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Atende
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if (!Auth::guest())
+                          <li ><a href="{{ route('home') }}"><i class="fa fa-users fa-fw"></i> Início</a></li>
+                          <li ><a href="{{ route('users.index') }}"><i class="fa fa-users fa-fw"></i> Usuários</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                          <li><a href="{{ url('/') }}"><i class="fa fa-question fa-fw"></i> Ajuda</a></li>
+                          <li><a href="{{ url('/login') }}">Login</a></li>
+                          <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

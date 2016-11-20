@@ -13,9 +13,13 @@ class UserController extends Controller
      */
     public function index()
     {
-      $users = \Atende\Models\User::paginate(3);
+      $actionLinks[0] = 'home';
+      $actionNames[0] = ' Voltar ';
+      $actionLinks[1] = 'users.create';
+      $actionNames[1] = ' Incluir ';
+      $users = \Atende\Models\User::paginate(4);
       //dd($users->toArray());
-      return view('users.index')->with(compact('users'));
+      return view('users.index')->with(compact('actionLinks', 'actionNames', 'users'));
     }
 
     /**
@@ -25,11 +29,16 @@ class UserController extends Controller
      */
     public function create()
     {
+      $actionLinks[0] = 'users.index';
+      $actionNames[0] = ' Voltar ';
+      $actionLinks[1] = 'users.store';
+      $actionNames[1] = ' Salvar ';
+
       $name = null;
       $email = null;
       $password = null;
       $password_confirmation = null;
-      return view('users.create')->with(compact('name', 'email', 'password', 'password_confirmation'));
+      return view('users.create')->with(compact('actionLinks', 'actionNames', 'name', 'email', 'password', 'password_confirmation'));
     }
 
     /**
